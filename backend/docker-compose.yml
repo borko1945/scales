@@ -1,0 +1,16 @@
+version: "3"
+services:
+  db:
+    image: "postgres:11"
+    container_name: "my_postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - my_dbdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=scales
+      - POSTGRES_USER=scales
+      - POSTGRES_DB=scales
+      - POSTGRES_PORT=5432
+volumes:
+  my_dbdata:
