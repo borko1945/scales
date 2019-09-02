@@ -10,11 +10,11 @@ export class ArticleService {
 
   constructor(private http:HttpClient) { }
 
-  getAll(pageNumber = 0, pageSize = 3): Observable<Article[]> {
-      return this.http.get<Article[]>('/articles', {
+  getAll(page = 0, size = 3): Observable<Page<Article>> {
+      return this.http.get<Page<Article>>('http://localhost:8080/articles', {
         params: new HttpParams()
-            .set('pageNumber', pageNumber.toString())
-            .set('pageSize', pageSize.toString())
+            .set('page', page.toString())
+            .set('size', size.toString())
     });
   }
 }

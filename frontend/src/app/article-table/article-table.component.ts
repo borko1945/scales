@@ -12,9 +12,12 @@ export class ArticleTableComponent implements OnInit {
   {id:2,name:"Banana", weight:0, created: new Date()}]
   displayedColumns: string[] = ['id', 'name', 'weight', 'created'];
 
-  constructor(service: ArticleService) { }
+  constructor(private service: ArticleService) { }
 
   ngOnInit() {
+    this.service.getAll().subscribe((result:Page<Article>) => {
+      this.dataSource=result.content;
+    });
   }
 
 }

@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
 @SpringBootApplication
-class ScalesApplication {
+public class ScalesApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ScalesApplication.class, args);
