@@ -1,30 +1,31 @@
 package com.rewe.scales.site.article;
 
-import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
-@Builder
 @Entity
-@Table(name="Article")
+@Table(name="article")
+@NoArgsConstructor
+@Data
 public class Article {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private long id;
+    private Long id;
 
     @NotNull
     @Column(name = "name")
-    String name;
+    private String name;
 
-    @NotNull
     @Column(name = "created")
-    Timestamp created;
+    private Timestamp created;
 
     @Column(name = "weight")
-    Double weight;
+    private Double weight;
 
     public boolean hasWeight() {
         return weight != null;

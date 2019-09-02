@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("locations")
-public class LocationController {
+class LocationController {
 
-    LocationService service;
+    private final LocationService service;
 
     public LocationController(LocationService service) {
         this.service = service;

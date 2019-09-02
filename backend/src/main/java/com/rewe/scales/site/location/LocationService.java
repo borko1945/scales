@@ -5,8 +5,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LocationService {
-    LocationRepository repo;
+class LocationService {
+    private final LocationRepository repo;
 
     LocationService(LocationRepository repo) {
         this.repo = repo;

@@ -1,11 +1,14 @@
 package com.rewe.scales.site.scales;
 
 import com.rewe.scales.site.location.Location;
+import lombok.Builder;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Builder
 @Entity
+@Table(name = "scale")
 public class Scale {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,14 +16,14 @@ public class Scale {
     private long id;
 
     @Column(name="serial_number")
-    String serialNumber;
+    private String serialNumber;
 
     @Column(name = "name")
-    String name;
+    private String name;
 
     @Column(name = "created")
-    Timestamp created;
+    private Timestamp created;
 
-    @OneToOne
+    @OneToOne(mappedBy = "scale")
     Location location;
 }

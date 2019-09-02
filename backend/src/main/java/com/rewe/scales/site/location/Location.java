@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 
 @Builder
 @Entity
-@Table(name="Location")
+@Table(name="location")
 public class Location {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,15 +17,16 @@ public class Location {
     private long id;
 
     @Column(name = "name")
-    String name;
+    private String name;
 
     @Column(name = "created")
-    Timestamp created;
+    private Timestamp created;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "article_id")
-    Article article;
+    private Article article;
 
-    @OneToOne(mappedBy = "scale_id")
-    Scale scale;
+    @OneToOne
+    @JoinColumn(name="scale_id")
+    private Scale scale;
 }
